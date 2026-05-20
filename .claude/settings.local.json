@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(venv/Scripts/pip install *)",
+      "Bash(python manage.py migrate)",
+      "Bash(venv/Scripts/python manage.py migrate)",
+      "Bash(venv/Scripts/python manage.py makemigrations)",
+      "Bash(venv/Scripts/python manage.py makemigrations users courses rooms teachers groups students payments attendance tests)",
+      "Bash(Remove-Item \"C:\\\\Users\\\\user\\\\Desktop\\\\educrm_complete\\\\backend\\\\db.sqlite3\" -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"db.sqlite3 o'chirildi\")",
+      "Bash(venv/Scripts/python manage.py seed)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
+    ]
+  }
+}
