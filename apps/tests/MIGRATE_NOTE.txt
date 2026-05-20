@@ -1,0 +1,3 @@
+# Tests app - models updated with Test and TestResult
+# Run: python manage.py makemigrations tests
+# Run: python manage.py migrate
