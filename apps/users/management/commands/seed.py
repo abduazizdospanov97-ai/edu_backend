@@ -56,6 +56,11 @@ DAYS_OPTIONS = [
     ['Du', 'Ch', 'Ju'],
     ['Se', 'Pa', 'Sha'],
     ['Du', 'Se', 'Ch', 'Pa', 'Ju'],
+    ['Du', 'Ch', 'Sha'],
+    ['Se', 'Pa', 'Ju'],
+    ['Du', 'Se', 'Ch', 'Sha'],
+    ['Ch', 'Pa', 'Sha'],
+    ['Du', 'Se', 'Ju', 'Sha'],
 ]
 
 TIMES = [
