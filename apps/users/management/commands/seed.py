@@ -37,12 +37,20 @@ TEACHERS_DATA = [
     {'name': 'Jasur Mirzayev', 'email': 'jasur@educrm.uz', 'subject': 'Grafik dizayn', 'phone': '+998905678901', 'salary': 4000000},
 ]
 
-STUDENTS_FIRST = ['Ali', 'Sardor', 'Jasur', 'Bobur', 'Ulugbek', 'Sherzod', 'Kamol', 'Mirzo',
-                  'Dilnoza', 'Nilufar', 'Zulfiya', 'Mohira', 'Feruza', 'Sabohat', 'Barno', 'Nargiza',
-                  'Otabek', 'Eldor', 'Firdavs', 'Temur', 'Sanjar', 'Doniyor', 'Hamza', 'Islom']
-STUDENTS_LAST  = ['Karimov', 'Rahimov', 'Yusupov', 'Toshmatov', 'Nazarov', 'Mirzayev', 'Xolmatov',
-                  'Umarov', 'Ergashev', 'Holiqov', 'Botirov', 'Sultonov', 'Qodirov', 'Jurayev',
-                  'Abdullayev', 'Hasanov', 'Normatov', 'Sobirov', 'Razzaqov', 'Ismoilov']
+MALE_FIRST = ['Ali', 'Sardor', 'Jasur', 'Bobur', 'Ulugbek', 'Sherzod', 'Kamol', 'Mirzo',
+              'Otabek', 'Eldor', 'Firdavs', 'Temur', 'Sanjar', 'Doniyor', 'Hamza', 'Islom',
+              'Asilbek', 'Mansur', 'Behruz', 'Ibrohim', 'Jahongir', 'Muhammadali']
+MALE_LAST   = ['Karimov', 'Rahimov', 'Yusupov', 'Toshmatov', 'Nazarov', 'Mirzayev', 'Xolmatov',
+               'Umarov', 'Ergashev', 'Holiqov', 'Botirov', 'Sultonov', 'Qodirov', 'Jurayev',
+               'Abdullayev', 'Hasanov', 'Normatov', 'Sobirov', 'Razzaqov', 'Ismoilov', 'Tursunov']
+
+FEMALE_FIRST = ['Dilnoza', 'Nilufar', 'Zulfiya', 'Mohira', 'Feruza', 'Sabohat', 'Barno', 'Nargiza',
+                'Nodira', 'Munira', 'Shahnoza', 'Mavluda', 'Kamola', 'Lola', 'Hulkar', 'Maftuna',
+                'Sarvinoz', 'Oydin', 'Gulnora', 'Ziyoda']
+FEMALE_LAST = ['Karimova', 'Rahimova', 'Yusupova', 'Toshmatova', 'Nazarova', 'Mirzayeva',
+               'Xolmatova', 'Umarova', 'Ergasheva', 'Holiqova', 'Botirova', 'Sultonova',
+               'Qodirova', 'Jurayeva', 'Abdullayeva', 'Hasanova', 'Normatova', 'Sobirova',
+               'Razzaqova', 'Ismoilova', 'Tursunova']
 
 DAYS_OPTIONS = [
     ['Du', 'Ch', 'Ju'],
@@ -121,8 +129,12 @@ class Command(BaseCommand):
         students = []
         phones_used = set()
         for i in range(60):
-            first = random.choice(STUDENTS_FIRST)
-            last = random.choice(STUDENTS_LAST)
+            if random.random() < 0.45:
+                first = random.choice(FEMALE_FIRST)
+                last = random.choice(FEMALE_LAST)
+            else:
+                first = random.choice(MALE_FIRST)
+                last = random.choice(MALE_LAST)
             while True:
                 phone = f'+9989{random.randint(10000000, 99999999)}'
                 if phone not in phones_used:
