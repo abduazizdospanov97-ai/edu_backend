@@ -70,7 +70,23 @@ TIMES = [
 class Command(BaseCommand):
     help = 'Fake ma\'lumotlar bilan bazani to\'ldirish'
 
+    def add_arguments(self, parser):
+        parser.add_argument('--reset', action='store_true', help='Eski ma\'lumotlarni o\'chirib qayta yaratish')
+
     def handle(self, *args, **kwargs):
+        if kwargs['reset']:
+            self.stdout.write('Eski ma\'lumotlar o\'chirilmoqda...')
+            TestResult.objects.all().delete()
+            Test.objects.all().delete()
+            Attendance.objects.all().delete()
+            Payment.objects.all().delete()
+            Student.objects.all().delete()
+            Group.objects.all().delete()
+            Teacher.objects.all().delete()
+            Room.objects.all().delete()
+            Course.objects.all().delete()
+            self.stdout.write('  OK: tozalandi\n')
+
         self.stdout.write('Fake data qoshilmoqda...\n')
 
         # 1. Kurslar
