@@ -2,8 +2,33 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
+
+
+def root(_request):
+    return JsonResponse({
+        'name': 'EduCRM API',
+        'status': 'ok',
+        'version': '1.0',
+        'admin': '/admin/',
+        'endpoints': [
+            '/api/auth/',
+            '/api/students/',
+            '/api/groups/',
+            '/api/courses/',
+            '/api/rooms/',
+            '/api/teachers/',
+            '/api/payments/',
+            '/api/attendance/',
+            '/api/tests/',
+            '/api/debtors/',
+            '/api/dashboard/',
+        ],
+    })
+
 
 urlpatterns = [
+    path('', root),
     path('admin/', admin.site.urls),
 
     # API v1
